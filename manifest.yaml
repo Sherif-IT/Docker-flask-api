@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-flask-deployment-lat
+  labels:
+    app: api-flask
+spec:
+  selector:
+    matchLabels:
+      app: api-flask
+  template:
+    metadata:
+      labels:
+        app: api-flask
+    spec:
+      containers:
+        - name: api-flask
+          image: localhost:32000/api-docker-flask-lat
+          ports:
+            - containerPort: 4242
